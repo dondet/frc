@@ -4,7 +4,7 @@
 #include "../Commands/CmdCameraManual.h"
 #include "CANTalon.h"
 
-SubCamera::SubCamera() : Subsystem("ExampleSubsystem") {
+SubCamera::SubCamera() : Subsystem("SubCamera") {
 	//Setup motors
 	SpkCameraHorizontal = RobotMap::subCameraHorizontal;
 	SpkCameraVirtical = RobotMap::subCameraVirtical;
@@ -33,6 +33,6 @@ void SubCamera::Stop(){
 
 void SubCamera::PublishValues(){
 	std::shared_ptr<Joystick> stick = Robot::oi->getJoystick1();
-	SmartDashboard::PutNumber("Joystick Camera Axis 2", stick->GetRawAxis(2));
-	SmartDashboard::PutNumber("Joystick Camera Axis 5", stick->GetRawAxis(5));
+	SmartDashboard::PutNumber("Joystick Axis 2", stick->GetRawAxis(2));
+	SmartDashboard::PutNumber("Joystick Axis 5", stick->GetRawAxis(5));
 }
