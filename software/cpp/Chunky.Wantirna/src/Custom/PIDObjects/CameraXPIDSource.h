@@ -16,7 +16,6 @@ public:
 	virtual ~CameraXPIDSource();
 	virtual double PIDGet();
 private:
-
 };
 
 #endif /* SRC_CUSTOM_CAMERAPIDSOURCE_H_ */

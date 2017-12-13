@@ -1,24 +1,31 @@
-#ifndef subCameraPID_H
-#define subCameraPID_H
+#ifndef SubCameraPID_H
+#define SubCameraPID_H
 
 #include <Commands/PIDSubsystem.h>
+#include <Custom/PIDObjects/CameraXPIDOutput.h>
+#include <Custom/PIDObjects/CameraXPIDSource.h>
+#include <Custom/PIDObjects/CameraYPIDOutput.h>
+#include <Custom/PIDObjects/CameraYPIDSource.h>
 
-class subCameraPID : public PIDSubsystem {
+class SubCameraPID : public PIDSubsystem {
 public:
-	subCameraPID();
+	SubCameraPID();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void InitDefaultCommand();
 
 private:
-
 	double p;
 	double i;
 	double d;
 
-	frc::PIDController CameraXController;
-	frc::PIDController CameraYController;
+	std::shared_ptr<frc::PIDController> cameraXController;
+	std::shared_ptr<frc::PIDController> cameraYController;
+	std::shared_ptr<CameraXPIDSource> cameraXSource;
+	std::shared_ptr<CameraXPIDOutput> cameraXOutput;
+	std::shared_ptr<CameraXPIDSource> cameraYSource;
+	std::shared_ptr<CameraXPIDOutput> cameraYOutput;
 
 };
 
-#endif  // subCameraPID_H
+#endif  // SubCameraPID_H

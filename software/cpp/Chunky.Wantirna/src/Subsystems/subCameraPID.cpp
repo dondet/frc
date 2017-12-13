@@ -1,42 +1,55 @@
-#include "subCameraPID.h"
-
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SmartDashboard.h>
+#include <PIDController.h>
+#include <Subsystems/SubCameraPID.h>
 #include "Commands/cmdCameraTrack.h"
 
 #include "../RobotMap.h"
 
-subCameraPID::subCameraPID() : PIDSubsystem("subCameraPID", 1.0, 0.0, 0.0) {
+SubCameraPID::SubCameraPID() :
+		PIDSubsystem("subCameraPID", 1.0, 0.0, 0.0) {
 	// Setup PID controller:
 
-	CameraXController = new PIDController*(p,i,d,
-										   new CameraXPIDSource(),
-										   new CameraXPIDOutput(0)
-										   );
-	CameraXController.SetInputRange(-1,1);
-	CameraXController.SetSetpoint(0);
-	CameraXController.SetOutputRange(-1,1);
-	CameraXController.Enable();
+	p = 1.0;
+	i = 1.0;
+	d = 1.0;
 
-	CameraYController = new PIDController*(p,i,d, static_cast<PIDSource*>( new CameraYPIDSource()), static_cast<PIDOutput*>( new CameraYPIDOutput(0)));
-	CameraYController.SetInputRange(-1,1);
-	CameraYController.SetSetpoint(0);
-	CameraYController.SetOutputRange(-1,1);
-	CameraYController.Enable();
+	cameraXSource = std::make_shared<CameraXPIDSource>();
+	cameraXOutput = std::make_shared<CameraXPIDOutput>(0);
+	cameraYSource = std::make_shared<CameraXPIDSource>();
+	cameraYOutput = std::make_shared<CameraXPIDOutput>(0);
+
+	cameraXController = std::make_shared<frc::PIDController>(1.0, 1.0, 1.0,
+			static_cast<frc::PIDSource*>(cameraXSource.get()),
+			static_cast<frc::PIDOutput*>(cameraXOutput.get()));
+
+	cameraXController->SetInputRange(-1, 1);
+	cameraXController->SetSetpoint(0);
+	cameraXController->SetOutputRange(-1, 1);
+	cameraXController->Enable();
+
+	cameraYController = std::make_shared<frc::PIDController>(1.0, 1.0, 1.0,
+			static_cast<frc::PIDSource*>(cameraYSource.get()),
+			static_cast<frc::PIDOutput*>(cameraYOutput.get()));
+
+	cameraYController->SetInputRange(-1, 1);
+	cameraYController->SetSetpoint(0);
+	cameraYController->SetOutputRange(-1, 1);
+	cameraYController->Enable();
 }
 
-double subCameraPID::ReturnPIDInput() {
+double SubCameraPID::ReturnPIDInput() {
 	// Return input values for the PID loop, Peg X and Y.
 	return Robot::subDriveBase->GetPegX();
 }
 
-void subCameraPID::UsePIDOutput(double output) {
+void SubCameraPID::UsePIDOutput(double output) {
 	// Use output to drive your system, like a motor
 	// e.g. yourMotor->Set(output);
 	Robot::subCamera->Pan(output);
 }
 
-void subCameraPID::InitDefaultCommand() {
+void SubCameraPID::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	SetDefaultCommand(new CmdCameraTrack());
 
