@@ -9,7 +9,7 @@ CmdCameraTrack::CmdCameraTrack() {
 
 // Called just before this Command runs the first time
 void CmdCameraTrack::Initialize() {
-
+	Robot::subCamera->PIDControl();
 }
 
 // Called repeatedly when this Command is scheduled to run

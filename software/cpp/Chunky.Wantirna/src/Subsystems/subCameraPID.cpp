@@ -40,6 +40,7 @@ SubCameraPID::SubCameraPID() :
 
 double SubCameraPID::ReturnPIDInput() {
 	// Return input values for the PID loop, Peg X and Y.
+	//Do it like this: return Robot::Ultrasonic->GetUltasonic();
 	return Robot::subDriveBase->GetPegX();
 }
 

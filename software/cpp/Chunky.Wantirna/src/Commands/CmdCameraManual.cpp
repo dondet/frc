@@ -12,7 +12,7 @@ void CmdCameraManual::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdCameraManual::Execute() {
 	std::shared_ptr<Joystick> stick = Robot::oi->getJoystick1();
-	Robot::subCamera->Pan(stick->GetRawAxis(2));
+	Robot::subCamera->Pan(stick->GetRawAxis(4));
 	Robot::subCamera->Tilt(stick->GetRawAxis(5));
 	Robot::subCamera->PublishValues();
 }
