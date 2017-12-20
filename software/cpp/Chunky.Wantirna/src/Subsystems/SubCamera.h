@@ -4,7 +4,6 @@
 #include <Commands/Subsystem.h>
 #include "WPILib.h"
 #include "CANTalon.h"
-// #include "Robot.h"
 #include <Custom/PIDObjects/CameraXPIDOutput.h>
 #include <Custom/PIDObjects/CameraXPIDSource.h>
 #include <Custom/PIDObjects/CameraYPIDOutput.h>
@@ -16,6 +15,7 @@ private:
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<SpeedController> SpkCameraHorizontal;
 	std::shared_ptr<SpeedController> SpkCameraVirtical;
+	std::shared_ptr<Preferences> prefs;
 
 	//PID Things
 	double p;
@@ -37,6 +37,7 @@ public:
 	void PIDControl();
 	void Stop();
 	void PublishValues();
+	double* GetPreferences();
 };
 
 #endif  // SubCamera_H

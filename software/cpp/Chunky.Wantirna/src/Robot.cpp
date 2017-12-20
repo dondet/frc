@@ -138,6 +138,15 @@ void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 }
 
+/*
+*double* Robot::GetPreferences() {
+	double m_prefs[] = {prefs->GetDouble("p"),
+			prefs->GetDouble("i"),
+			prefs->GetDouble("d")};
+	return m_prefs;
+}
+*/
+
 void Robot::TestPeriodic() {
 	lw->Run();
 }

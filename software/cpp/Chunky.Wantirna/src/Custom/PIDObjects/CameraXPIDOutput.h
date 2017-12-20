@@ -11,7 +11,6 @@
 #include "PIDOutput.h"
 
 class CameraXPIDOutput: public frc::PIDOutput {
-
 public:
 	CameraXPIDOutput(double arg_power);
 	virtual ~CameraXPIDOutput();
@@ -22,4 +21,4 @@ private:
 };
 
 
-#endif /* SRC_CUSTOM_DRIVEPIDOUTPUT_H_ */
+#endif /* SRC_CUSTOM_PIDOBJECTS_CAMERAXPIDOUTPUT_H_ */

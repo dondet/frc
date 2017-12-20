@@ -14,7 +14,7 @@ CameraYPIDOutput::CameraYPIDOutput(double arg_power) {
 }
 
 void CameraYPIDOutput::PIDWrite(double output) {
-	Robot::subCamera->Pan(power);
+	Robot::subCamera->Pan(output);
 }
 
 CameraYPIDOutput::~CameraYPIDOutput() {

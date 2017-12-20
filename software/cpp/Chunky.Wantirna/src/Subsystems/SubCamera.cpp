@@ -1,19 +1,22 @@
 #include "SubCamera.h"
 #include "../RobotMap.h"
+#include "../Robot.h"
 #include "../Commands/CmdCameraTrack.h"
 #include "../Commands/CmdCameraManual.h"
 #include "CANTalon.h"
+#include "SmartDashboard/SmartDashboard.h"
 #include <PIDController.h>
 
 SubCamera::SubCamera() : Subsystem("SubCamera") {
 	//Setup motors
 	SpkCameraHorizontal = RobotMap::subCameraHorizontal;
 	SpkCameraVirtical = RobotMap::subCameraVirtical;
+    prefs = RobotMap::subCameraPrefs;
 
-	//Setup PID Controllers
-	p = 1.0;
-	i = 1.0;
-	d = 1.0;
+    //Setup PID Controllers
+	p = prefs->GetDouble( "p", 0.0 );
+	i = prefs->GetDouble( "i", 0.0 );
+	d = prefs->GetDouble( "d", 0.0 );
 
 	cameraXSource = std::make_shared<CameraXPIDSource>();
 	cameraXOutput = std::make_shared<CameraXPIDOutput>(0);
@@ -60,13 +63,13 @@ void SubCamera::PIDControl(){
 }
 
 void SubCamera::Stop(){
-	//Stop both pan and tilt motors
-	SpkCameraVirtical->Set(0);
-	SpkCameraHorizontal->Set(0);
-
 	//Disable PID Control
 	cameraXController->Disable();
 	cameraYController->Disable();
+
+	//Stop both pan and tilt motors
+	SpkCameraVirtical->Set(0);
+	SpkCameraHorizontal->Set(0);
 }
 
 void SubCamera::PublishValues(){
