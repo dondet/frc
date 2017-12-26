@@ -72,6 +72,9 @@ void SubCamera::SetPID( double p, double i, double d ) {
 	myP = p;
 	myI = i;
 	myD = d;
+	SmartDashboard::PutNumber("MyP:", myP);
+	SmartDashboard::PutNumber("MyI:", myI);
+	SmartDashboard::PutNumber("MyD:", myD);
 }
 
 void SubCamera::Stop(){
