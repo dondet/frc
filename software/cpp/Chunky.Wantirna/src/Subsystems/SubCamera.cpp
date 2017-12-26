@@ -8,6 +8,12 @@
 #include <PIDController.h>
 
 SubCamera::SubCamera() : Subsystem("SubCamera") {
+
+	//my setup...
+	myP = 0.0;
+	myI = 0.0;
+	myD = 0.0;
+
 	//Setup motors
 	SpkCameraHorizontal = RobotMap::subCameraHorizontal;
 	SpkCameraVirtical = RobotMap::subCameraVirtical;
@@ -60,6 +66,12 @@ void SubCamera::PIDControl(){
 	//Start PID control
 	cameraXController->Enable();
 	cameraYController->Enable();
+}
+
+void SubCamera::SetPID( double p, double i, double d ) {
+	myP = p;
+	myI = i;
+	myD = d;
 }
 
 void SubCamera::Stop(){

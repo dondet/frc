@@ -21,6 +21,9 @@ private:
 	double p;
 	double i;
 	double d;
+	double myP;
+	double myI;
+	double myD;
 	std::shared_ptr<frc::PIDController> cameraXController;
 	std::shared_ptr<frc::PIDController> cameraYController;
 	std::shared_ptr<CameraXPIDSource> cameraXSource;
@@ -38,6 +41,7 @@ public:
 	void Stop();
 	void PublishValues();
 	double* GetPreferences();
+	void SetPID(double, double, double );
 };
 
 #endif  // SubCamera_H

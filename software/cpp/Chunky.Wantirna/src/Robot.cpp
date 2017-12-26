@@ -95,6 +95,16 @@ void Robot::RobotInit() {
 	chooser.AddObject("Auto 9: Do Nothing", new CmdAuto9DoNothing());
 	frc::SmartDashboard::PutData("Autonomous modes", &chooser);
 
+	// Setup preferences
+	icPrefs = Preferences::GetInstance();
+	icPrefCameraP = icPrefs->GetDouble("P", 0.0);
+	icPrefCameraI = icPrefs->GetDouble("I", 0.0);
+	icPrefCameraD = icPrefs->GetDouble("D", 0.0);
+
+
+	// inject preferences into subsystems
+	subCamera->SetPID( icPrefCameraP, icPrefCameraI, icPrefCameraD );
+
 }
 
 /**
