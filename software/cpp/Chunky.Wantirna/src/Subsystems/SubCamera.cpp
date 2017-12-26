@@ -27,7 +27,7 @@ SubCamera::SubCamera() : Subsystem("SubCamera") {
 	cameraXSource = std::make_shared<CameraXPIDSource>();
 	cameraXOutput = std::make_shared<CameraXPIDOutput>(0);
 
-	cameraXController = std::make_shared<frc::PIDController>(1.0, 1.0, 1.0,
+	cameraXController = std::make_shared<frc::PIDController>(myP, myI, myD,
 			static_cast<frc::PIDSource*>(cameraXSource.get()),
 			static_cast<frc::PIDOutput*>(cameraXOutput.get()));
 
@@ -38,7 +38,7 @@ SubCamera::SubCamera() : Subsystem("SubCamera") {
 	cameraYSource = std::make_shared<CameraXPIDSource>();
 	cameraYOutput = std::make_shared<CameraXPIDOutput>(0);
 
-	cameraYController = std::make_shared<frc::PIDController>(1.0, 1.0, 1.0,
+	cameraYController = std::make_shared<frc::PIDController>(myP, myI, myD,
 			static_cast<frc::PIDSource*>(cameraYSource.get()),
 			static_cast<frc::PIDOutput*>(cameraYOutput.get()));
 
