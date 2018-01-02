@@ -15,6 +15,16 @@ void CmdCameraManual::Execute() {
 	Robot::subCamera->Pan(stick->GetRawAxis(4));
 	Robot::subCamera->Tilt(stick->GetRawAxis(5));
 	Robot::subCamera->PublishValues();
+
+	// Setup preferences
+		icPrefs = Preferences::GetInstance();
+		icPrefCameraP = icPrefs->GetDouble("P", 0.0);
+		icPrefCameraI = icPrefs->GetDouble("I", 0.0);
+		icPrefCameraD = icPrefs->GetDouble("D", 0.0);
+
+	// inject preferences into subsystems
+	Robot::subCamera->SetPID( icPrefCameraP, icPrefCameraI, icPrefCameraD );
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

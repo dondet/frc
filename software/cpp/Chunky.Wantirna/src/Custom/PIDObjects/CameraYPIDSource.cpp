@@ -16,7 +16,6 @@ CameraYPIDSource::~CameraYPIDSource() {
 
 }
 
-
 double CameraYPIDSource::PIDGet() {
 	return Robot::subDriveBase->GetPegY();
 }

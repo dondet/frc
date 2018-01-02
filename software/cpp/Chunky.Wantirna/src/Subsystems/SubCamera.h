@@ -28,8 +28,8 @@ private:
 	std::shared_ptr<frc::PIDController> cameraYController;
 	std::shared_ptr<CameraXPIDSource> cameraXSource;
 	std::shared_ptr<CameraXPIDOutput> cameraXOutput;
-	std::shared_ptr<CameraXPIDSource> cameraYSource;
-	std::shared_ptr<CameraXPIDOutput> cameraYOutput;
+	std::shared_ptr<CameraYPIDSource> cameraYSource;
+	std::shared_ptr<CameraYPIDOutput> cameraYOutput;
 
 
 public:

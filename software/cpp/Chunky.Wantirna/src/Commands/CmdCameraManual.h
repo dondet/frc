@@ -7,6 +7,12 @@
 
 class CmdCameraManual : public Command {
 public:
+
+	Preferences *icPrefs;
+	double icPrefCameraP;
+	double icPrefCameraI;
+	double icPrefCameraD;
+
 	CmdCameraManual();
 	void Initialize();
 	void Execute();

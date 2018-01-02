@@ -37,8 +37,10 @@ SubCamera::SubCamera() : Subsystem("SubCamera") {
 	cameraXController->SetSetpoint(0);
 	cameraXController->SetOutputRange(-1, 1);
 
-	cameraYSource = std::make_shared<CameraXPIDSource>();
-	cameraYOutput = std::make_shared<CameraXPIDOutput>(0);
+
+
+	cameraYSource = std::make_shared<CameraYPIDSource>();
+	cameraYOutput = std::make_shared<CameraYPIDOutput>(0);
 
 	cameraYController = std::make_shared<frc::PIDController>(myP, myI, myD,
 			static_cast<frc::PIDSource*>(cameraYSource.get()),
@@ -74,9 +76,11 @@ void SubCamera::SetPID( double p, double i, double d ) {
 	myP = p;
 	myI = i;
 	myD = d;
-	//SmartDashboard::PutNumber("MyP:", myP);
-	//SmartDashboard::PutNumber("MyI:", myI);
-	//SmartDashboard::PutNumber("MyD:", myD);
+	SmartDashboard::PutNumber("MyP:", myP);
+	SmartDashboard::PutNumber("MyI:", myI);
+	SmartDashboard::PutNumber("MyD:", myD);
+	cameraXController->SetPID(myP, myI, myD);
+	cameraYController->SetPID(myP, myI, myD);
 }
 
 void SubCamera::Stop(){

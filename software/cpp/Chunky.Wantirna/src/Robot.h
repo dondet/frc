@@ -41,10 +41,10 @@ public:
     static std::shared_ptr<SubFeeder> subFeeder;
     static std::shared_ptr<SubCamera> subCamera;
 
-    Preferences *icPrefs;
-    double icPrefCameraP;
-    double icPrefCameraI;
-    double icPrefCameraD;
+    //Preferences *icPrefs;
+    //double icPrefCameraP;
+    //double icPrefCameraI;
+    //double icPrefCameraD;
 
     virtual void RobotInit();
 	virtual void DisabledInit();
