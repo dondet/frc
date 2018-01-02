@@ -9,6 +9,10 @@
 
 SubCamera::SubCamera() : Subsystem("SubCamera") {
 
+	p = 0.0;
+	i = 0.0;
+	d = 0.0;
+
 	//my setup...
 	myP = 0.0;
 	myI = 0.0;
@@ -17,12 +21,10 @@ SubCamera::SubCamera() : Subsystem("SubCamera") {
 	//Setup motors
 	SpkCameraHorizontal = RobotMap::subCameraHorizontal;
 	SpkCameraVirtical = RobotMap::subCameraVirtical;
-    prefs = RobotMap::subCameraPrefs;
+
 
     //Setup PID Controllers
-	p = prefs->GetDouble( "p", 0.0 );
-	i = prefs->GetDouble( "i", 0.0 );
-	d = prefs->GetDouble( "d", 0.0 );
+
 
 	cameraXSource = std::make_shared<CameraXPIDSource>();
 	cameraXOutput = std::make_shared<CameraXPIDOutput>(0);
@@ -72,9 +74,9 @@ void SubCamera::SetPID( double p, double i, double d ) {
 	myP = p;
 	myI = i;
 	myD = d;
-	SmartDashboard::PutNumber("MyP:", myP);
-	SmartDashboard::PutNumber("MyI:", myI);
-	SmartDashboard::PutNumber("MyD:", myD);
+	//SmartDashboard::PutNumber("MyP:", myP);
+	//SmartDashboard::PutNumber("MyI:", myI);
+	//SmartDashboard::PutNumber("MyD:", myD);
 }
 
 void SubCamera::Stop(){
