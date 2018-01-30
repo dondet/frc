@@ -98,10 +98,11 @@ void RobotMap::init() {
 //    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputLeft);
 
     //initiate echo Ultrasonic objects
-    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(11,13));
+    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));
     subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
     subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
     subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));
+
 
     //Construct Motion Profiles
     mpBaseline.reset(new MotionProfileData(kBaselineA, kBaselineB, kBaselineASz));
