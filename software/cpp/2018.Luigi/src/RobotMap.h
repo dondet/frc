@@ -36,10 +36,12 @@ public:
 //	static std::shared_ptr<frc::AnalogInput> subDriveBaseUltrasonicInputLeft;
 
 	//Define echo ultrasonic sensors
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputFront;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputRight;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputBack;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputLeft;
+	//static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputFront;
+	//static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputRight;
+	//static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputBack;
+	//static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputLeft;
+
+	static std::shared_ptr<frc::I2C> i2c;
 
 	//Define arm lift Actuators / Actuator
 	static std::shared_ptr<WPI_TalonSRX> subEncodedArmLiftSrxMaster;

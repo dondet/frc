@@ -23,11 +23,13 @@ std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtLeftLimit;
 //std::shared_ptr<frc::AnalogInput> RobotMap::subDriveBaseUltrasonicInputBack;
 //std::shared_ptr<frc::AnalogInput> RobotMap::subDriveBaseUltrasonicInputLeft;
 
+std::shared_ptr<frc::I2C> RobotMap::i2c;
+
 //Define Ultrasonic sensors Echo
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputRight;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputBack;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputLeft;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputRight;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputBack;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputLeft;
 
 //Define arm lift Actuators / Actuator
 std::shared_ptr<WPI_TalonSRX> RobotMap::subEncodedArmLiftSrxMaster;
@@ -97,11 +99,15 @@ void RobotMap::init() {
 //    subDriveBaseUltrasonicInputLeft.reset(new frc::AnalogInput(3));
 //    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputLeft);
 
+    i2c.reset(new I2C(I2C::Port::kOnboard, 8));
+
+
+
     //initiate echo Ultrasonic objects
-    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));
-    subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
-    subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
-    subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));
+    //subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));
+    //subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
+   //subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
+    //subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));
 
 
     //Construct Motion Profiles

@@ -8,10 +8,15 @@ SubDriveBase::SubDriveBase() : frc::Subsystem("SubDriveBase") {
     differentialDrive = RobotMap::subDriveBaseDifferentialDrive;
 
 
-    ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
-    ultrasonicInputRight = RobotMap::subDriveBaseUltrasonicInputRight;
-    ultrasonicInputBack = RobotMap::subDriveBaseUltrasonicInputBack;
-    ultrasonicInputLeft = RobotMap::subDriveBaseUltrasonicInputLeft;
+    //ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
+    //ultrasonicInputRight = RobotMap::subDriveBaseUltrasonicInputRight;
+    //ultrasonicInputBack = RobotMap::subDriveBaseUltrasonicInputBack;
+    //ultrasonicInputLeft = sRobotMap::subDriveBaseUltrasonicInputLeft;
+
+    i2c = RobotMap::i2c;
+
+   // i2c = new I2C(I2C::Port::kOnboard, 8);
+
 }
 
 void SubDriveBase::InitDefaultCommand() {
@@ -20,7 +25,7 @@ void SubDriveBase::InitDefaultCommand() {
 
 void SubDriveBase::Periodic() {
 
-	if (++_Ultraloops >= 30) {
+	//if (++_Ultraloops >= 30) {
 
 	//frontUValue = ((((ultrasonicInputFront->GetValue())/ (5.0 / 500.0))/1000.0)+5.0);
 	//rightUValue = ((((ultrasonicInputRight->GetValue())/ (5.0 / 500.0))/1000.0)+5.0);
@@ -30,24 +35,29 @@ void SubDriveBase::Periodic() {
 	//frontUValue = ultrasonicInputFront->GetValue();
 
 	//code for DIO echo ultrasonic sensors
-	ultrasonicInputFront->SetAutomaticMode(true);
-	ultrasonicInputRight->SetAutomaticMode(true);
-	ultrasonicInputBack->SetAutomaticMode(true);
-	ultrasonicInputFront->SetAutomaticMode(true);
-	frontUValue = ultrasonicInputFront->GetRangeInches();
-	rightUValue = ultrasonicInputRight->GetRangeInches();
-	backUValue = ultrasonicInputBack->GetRangeInches();
-	leftUValue = ultrasonicInputLeft->GetRangeInches();
+	//ultrasonicInputFront->SetAutomaticMode(true);
+	//ultrasonicInputRight->SetAutomaticMode(true);
+	//ultrasonicInputBack->SetAutomaticMode(true);
+	//ultrasonicInputFront->SetAutomaticMode(true);
+	//frontUValue = ultrasonicInputFront->GetRangeInches();
+	//rightUValue = ultrasonicInputRight->GetRangeInches();
+	//backUValue = ultrasonicInputBack->GetRangeInches();
+	//leftUValue = ultrasonicInputLeft->GetRangeInches();
 
-	frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
-	frc::SmartDashboard::PutNumber("Ultra, right", rightUValue);
-	frc::SmartDashboard::PutNumber("Ultra, back", backUValue);
-	frc::SmartDashboard::PutNumber("Ultra, left", leftUValue);
+	//frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
+	//frc::SmartDashboard::PutNumber("Ultra, right", rightUValue);
+	//frc::SmartDashboard::PutNumber("Ultra, back", backUValue);
+	//frc::SmartDashboard::PutNumber("Ultra, left", leftUValue);
 	//frc::SmartDashboard::PutNumber("Ultra RAW, DIO:0", ultrasonicInputFront->GetValue());
+    uint8_t fred[255];
+    uint8_t joe[255];
+    std::string blah(fred, fred + sizeof(fred));
+    i2c->Transaction(joe, 0, fred, 6);
+	  frc::SmartDashboard::PutString("i2c Reading", blah);
 
-	_Ultraloops = 0;
+	//_Ultraloops = 0;
 
-	}
+//	}
 
 }
 
