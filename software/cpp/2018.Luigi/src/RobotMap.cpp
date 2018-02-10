@@ -26,7 +26,7 @@ std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtLeftLimit;
 std::shared_ptr<frc::I2C> RobotMap::i2c;
 
 //Define Ultrasonic sensors Echo
-//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
+std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
 //std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputRight;
 //std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputBack;
 //std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputLeft;
@@ -90,8 +90,8 @@ void RobotMap::init() {
     subIntakeSwtRightLimit.reset(new DigitalInput(1));
 
 //    //Initiate Ultrasonic sensors Analog
-//    subDriveBaseUltrasonicInputFront.reset(new frc::AnalogInput(0));
-//    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputFront);
+    //subDriveBaseUltrasonicInputFront.reset(new frc::AnalogInput(0));
+    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputFront);
 //    subDriveBaseUltrasonicInputRight.reset(new frc::AnalogInput(1));
 //    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputRight);
 //    subDriveBaseUltrasonicInputBack.reset(new frc::AnalogInput(2));
@@ -104,7 +104,7 @@ void RobotMap::init() {
 
 
     //initiate echo Ultrasonic objects
-    //subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));
+    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));
     //subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
    //subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
     //subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));

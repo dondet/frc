@@ -8,7 +8,7 @@ SubDriveBase::SubDriveBase() : frc::Subsystem("SubDriveBase") {
     differentialDrive = RobotMap::subDriveBaseDifferentialDrive;
 
 
-    //ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
+    ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
     //ultrasonicInputRight = RobotMap::subDriveBaseUltrasonicInputRight;
     //ultrasonicInputBack = RobotMap::subDriveBaseUltrasonicInputBack;
     //ultrasonicInputLeft = sRobotMap::subDriveBaseUltrasonicInputLeft;
@@ -35,30 +35,32 @@ void SubDriveBase::Periodic() {
 	//frontUValue = ultrasonicInputFront->GetValue();
 
 	//code for DIO echo ultrasonic sensors
-	//ultrasonicInputFront->SetAutomaticMode(true);
+	ultrasonicInputFront->SetAutomaticMode(true);
 	//ultrasonicInputRight->SetAutomaticMode(true);
 	//ultrasonicInputBack->SetAutomaticMode(true);
 	//ultrasonicInputFront->SetAutomaticMode(true);
-	//frontUValue = ultrasonicInputFront->GetRangeInches();
+	frontUValue = ultrasonicInputFront->GetRangeInches();
+		frontUValueMM = (frontUValue * 25.4);
 	//rightUValue = ultrasonicInputRight->GetRangeInches();
 	//backUValue = ultrasonicInputBack->GetRangeInches();
 	//leftUValue = ultrasonicInputLeft->GetRangeInches();
 
-	//frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
+
+	frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
 	//frc::SmartDashboard::PutNumber("Ultra, right", rightUValue);
 	//frc::SmartDashboard::PutNumber("Ultra, back", backUValue);
 	//frc::SmartDashboard::PutNumber("Ultra, left", leftUValue);
 	//frc::SmartDashboard::PutNumber("Ultra RAW, DIO:0", ultrasonicInputFront->GetValue());
-    uint8_t fred[255];
-    uint8_t joe[255];
-    std::string blah(fred, fred + sizeof(fred));
-    i2c->Transaction(joe, 0, fred, 6);
-	  frc::SmartDashboard::PutString("i2c Reading", blah);
 
-	//_Ultraloops = 0;
 
-//	}
+	//Ultraloops = 0;
 
+	//}
+	    //uint8_t fred[255];
+	    //uint8_t joe[255];
+	    //std::string blah(fred, fred + sizeof(fred));
+	    //i2c->Transaction(joe, 0, fred, 6);
+		  //frc::SmartDashboard::PutString("i2c Reading", blah);
 }
 
 void SubDriveBase::AutoDrive(double speed, double rotation) {
