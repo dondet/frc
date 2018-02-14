@@ -21,8 +21,8 @@ CmdPrepForClimb::CmdPrepForClimb() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	Requires(Robot::subEncodedArmLift.get());
-	Requires(Robot::subRamp.get());
+//	Requires(Robot::subEncodedArmLift.get());
+//	Requires(Robot::subRamp.get());
 
 	AddSequential(new CmdArmPosScale());
 	AddSequential(new CmdRampDrop());
