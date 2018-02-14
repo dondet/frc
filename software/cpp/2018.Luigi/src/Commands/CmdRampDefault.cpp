@@ -1,4 +1,5 @@
 #include "CmdRampDefault.h"
+#include "CmdPrepForClimb.h"
 
 CmdRampDefault::CmdRampDefault() {
 	// Use Requires() here to declare subsystem dependencies
@@ -17,12 +18,13 @@ void CmdRampDefault::Execute() {
 	sticky_3 = Robot::oi->getJoystick0();
 	_POV = sticky_3->GetPOV();
 
-	if (135 <= _POV && _POV <= 225) {
+	if (135 <= _POV && _POV <= 225) { //bottom half of POV
 		SetTimeout(0.5);
-		Robot::subRamp->DropRamp();
+		CmdPrepForClimb cmdPrepForClimb;
+		cmdPrepForClimb.Start();
 		}
 
-	if (270 <= _POV or (_POV <= 90 && _POV >= 0) ){
+	if (270 <= _POV or (_POV <= 90 && _POV >= 0) ){ //top half of POV
 		SetTimeout(0.15);
 		Robot::subRamp->ResetRamp();
 	}

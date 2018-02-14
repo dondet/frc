@@ -30,6 +30,7 @@ public:
 	SubEncodedArmLift();
 	void ArmToGroundPos();
 	void ArmToSwitchPos();
+	void ArmToClimbPos();
 	void ArmToScalePos();
 	void ArmToExchangePos();
 	void Overide(std::shared_ptr<Joystick>);
