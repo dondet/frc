@@ -1,6 +1,7 @@
 #ifndef _ROBOT_H
 #define _ROBOT_H
 
+#include <Subsystems/SubOnboardAutoSelector.h>
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "RobotMap.h"
@@ -20,6 +21,7 @@
 #include "Subsystems/SubEncodedArmLift.h"
 #include "Subsystems/SubCameras.h"
 #include "Subsystems/SubRamp.h"
+#include "Subsystems/SubOnboardAutoSelector.h"
 
 class Robot : public frc::TimedRobot {
 public:
@@ -39,6 +41,7 @@ public:
 	static std::shared_ptr<SubEncodedArmLift> subEncodedArmLift;
 	static std::shared_ptr<SubCameras> subCameras;
 	static std::shared_ptr<SubRamp> subRamp;
+	static std::shared_ptr<SubOnboardAutoSelector> subOnboardAutoSelector;
 
 	//Declare robot functions
 	void RobotInit() override;

@@ -8,10 +8,10 @@ SubDriveBase::SubDriveBase() : frc::Subsystem("SubDriveBase") {
     differentialDrive = RobotMap::subDriveBaseDifferentialDrive;
 
 
-    ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
-    ultrasonicInputRight = RobotMap::subDriveBaseUltrasonicInputRight;
-    ultrasonicInputBack = RobotMap::subDriveBaseUltrasonicInputBack;
-    ultrasonicInputLeft = RobotMap::subDriveBaseUltrasonicInputLeft;
+//    ultrasonicInputFront = RobotMap::subDriveBaseUltrasonicInputFront;
+//    ultrasonicInputRight = RobotMap::subDriveBaseUltrasonicInputRight;
+//    ultrasonicInputBack = RobotMap::subDriveBaseUltrasonicInputBack;
+//    ultrasonicInputLeft = RobotMap::subDriveBaseUltrasonicInputLeft;
 }
 
 void SubDriveBase::InitDefaultCommand() {
@@ -30,19 +30,19 @@ void SubDriveBase::Periodic() {
 	//frontUValue = ultrasonicInputFront->GetValue();
 
 	//code for DIO echo ultrasonic sensors
-	ultrasonicInputFront->SetAutomaticMode(true);
-	ultrasonicInputRight->SetAutomaticMode(true);
-	ultrasonicInputBack->SetAutomaticMode(true);
-	ultrasonicInputFront->SetAutomaticMode(true);
-	frontUValue = ultrasonicInputFront->GetRangeInches();
-	rightUValue = ultrasonicInputRight->GetRangeInches();
-	backUValue = ultrasonicInputBack->GetRangeInches();
-	leftUValue = ultrasonicInputLeft->GetRangeInches();
+//	ultrasonicInputFront->SetAutomaticMode(true);
+//	ultrasonicInputRight->SetAutomaticMode(true);
+//	ultrasonicInputBack->SetAutomaticMode(true);
+//	ultrasonicInputFront->SetAutomaticMode(true);
+//	frontUValue = ultrasonicInputFront->GetRangeInches();
+//	rightUValue = ultrasonicInputRight->GetRangeInches();
+//	backUValue = ultrasonicInputBack->GetRangeInches();
+//	leftUValue = ultrasonicInputLeft->GetRangeInches();
 
-	frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
-	frc::SmartDashboard::PutNumber("Ultra, right", rightUValue);
-	frc::SmartDashboard::PutNumber("Ultra, back", backUValue);
-	frc::SmartDashboard::PutNumber("Ultra, left", leftUValue);
+//	frc::SmartDashboard::PutNumber("Ultra, front", frontUValue);
+//	frc::SmartDashboard::PutNumber("Ultra, right", rightUValue);
+//	frc::SmartDashboard::PutNumber("Ultra, back", backUValue);
+//	frc::SmartDashboard::PutNumber("Ultra, left", leftUValue);
 	//frc::SmartDashboard::PutNumber("Ultra RAW, DIO:0", ultrasonicInputFront->GetValue());
 
 	_Ultraloops = 0;

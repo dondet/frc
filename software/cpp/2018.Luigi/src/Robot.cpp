@@ -7,10 +7,12 @@ std::unique_ptr<OI> Robot::oi;
 std::shared_ptr<SubEncodedArmLift> Robot::subEncodedArmLift;
 std::shared_ptr<SubCameras> Robot::subCameras;
 std::shared_ptr<SubRamp> Robot::subRamp;
+std::shared_ptr<SubOnboardAutoSelector> Robot::subOnboardAutoSelector;
 
 std::shared_ptr<MotionProfileData> Robot::MPData;
 GameData Robot::gameData;
 AutonomousSelector Robot::autoSelector;
+int periodiccounter;
 
 Robot* Robot::instance = 0;
 Robot* Robot::getInstance(){
@@ -35,10 +37,12 @@ void Robot::RobotInit() {
 	subEncodedArmLift.reset(new SubEncodedArmLift());
 	subCameras.reset(new SubCameras);
 	subRamp.reset(new SubRamp);
+	subOnboardAutoSelector.reset(new SubOnboardAutoSelector);
 	oi.reset(new OI());
 
 	//Setup Auto Chooser
 	autoSelector.SendOptionsToDashboard();
+	periodiccounter = 0;
 }
 
 void Robot::DisabledInit(){
@@ -79,6 +83,12 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
+	if( periodiccounter > 100 ) {
+		subOnboardAutoSelector->Read();
+		periodiccounter = 0;
+	} else {
+		periodiccounter++;
+	}
 }
 
 int main() {

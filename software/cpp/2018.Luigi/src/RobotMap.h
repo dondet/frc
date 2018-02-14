@@ -23,7 +23,14 @@ public:
 	static std::shared_ptr<DigitalInput> subIntakeSwtLeftLimit;
 	static std::shared_ptr<DigitalInput> subIntakeSwtRightLimit;
 
-
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtA1;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtA2;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtA4;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtA8;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtB1;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtB2;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtB4;
+	static std::shared_ptr<DigitalInput> subOnboardAutoSelectorSwtB8;
 
 //	//Define anlouge Ultrasonic sensors
 //	static std::shared_ptr<frc::AnalogInput> subDriveBaseUltrasonicInputFront;
@@ -32,10 +39,10 @@ public:
 //	static std::shared_ptr<frc::AnalogInput> subDriveBaseUltrasonicInputLeft;
 
 	//Define echo ultrasonic sensors
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputFront;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputRight;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputBack;
-	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputLeft;
+//	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputFront;
+//	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputRight;
+//	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputBack;
+//	static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputLeft;
 
 	//Define arm lift Actuators / Actuator
 	static std::shared_ptr<WPI_TalonSRX> subEncodedArmLiftSrxMaster;

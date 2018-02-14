@@ -24,10 +24,10 @@ std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtLeftLimit;
 //std::shared_ptr<frc::AnalogInput> RobotMap::subDriveBaseUltrasonicInputLeft;
 
 //Define Ultrasonic sensors Echo
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputRight;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputBack;
-std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputLeft;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputRight;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputBack;
+//std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputLeft;
 
 //Define arm lift Actuators / Actuator
 std::shared_ptr<WPI_TalonSRX> RobotMap::subEncodedArmLiftSrxMaster;
@@ -39,6 +39,15 @@ std::shared_ptr<DigitalInput> RobotMap::subEncodedArmLiftSwtBottom;
 //Define Ramp drop actuator
 std::shared_ptr<VictorSP> RobotMap::subRampSPLeft;
 
+//Add autonomous selector switches
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtA1;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtA2;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtA4;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtA8;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtB1;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtB2;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtB4;
+std::shared_ptr<DigitalInput> RobotMap::subOnboardAutoSelectorSwtB8;
 
 void RobotMap::init() {
 
@@ -93,6 +102,16 @@ void RobotMap::init() {
     subIntakeSwtLeftLimit.reset(new DigitalInput(0));
     subIntakeSwtRightLimit.reset(new DigitalInput(1));
 
+    //Initiate Selector Switches
+    subOnboardAutoSelectorSwtA1.reset(new DigitalInput(18)); // this is actually "DIO8" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtA2.reset(new DigitalInput(19)); // this is actually "DIO9" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtA4.reset(new DigitalInput(20)); // this is actually "DIO10" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtA8.reset(new DigitalInput(21)); // this is actually "DIO11" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtB1.reset(new DigitalInput(22)); // this is actually "DIO12" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtB2.reset(new DigitalInput(23)); // this is actually "DIO13" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtB4.reset(new DigitalInput(24)); // this is actually "DIO14" on the ROBORIO MXP
+    subOnboardAutoSelectorSwtB8.reset(new DigitalInput(25)); // this is actually "DIO15" on the ROBORIO MXP
+
 //    //Initiate Ultrasonic sensors Analog
 //    subDriveBaseUltrasonicInputFront.reset(new frc::AnalogInput(0));
 //    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputFront);
@@ -104,10 +123,10 @@ void RobotMap::init() {
 //    	//lw->AddSensor("SubUltrasonic", "UltrasonicInputFront",  subDriveBaseUltrasonicInputLeft);
 
     //initiate echo Ultrasonic objects
-    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(11,13));
-    subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
-    subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
-    subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));
+//    subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(11,13));
+//    subDriveBaseUltrasonicInputRight.reset(new frc::Ultrasonic(15,17));
+//    subDriveBaseUltrasonicInputBack.reset(new frc::Ultrasonic(19,21));
+//    subDriveBaseUltrasonicInputLeft.reset(new frc::Ultrasonic(23,25));
 
     //Construct Motion Profiles
 //    mpBaseline.reset(new MotionProfileData(kBaselineA, kBaselineB, kBaselineASz));

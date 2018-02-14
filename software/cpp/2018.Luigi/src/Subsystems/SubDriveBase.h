@@ -22,10 +22,10 @@ private:
 //	std::shared_ptr<frc::AnalogInput> ultrasonicInputLeft;
 
 	//this is for echo ultras
-	std::shared_ptr<frc::Ultrasonic> ultrasonicInputFront;
-	std::shared_ptr<frc::Ultrasonic> ultrasonicInputRight;
-	std::shared_ptr<frc::Ultrasonic> ultrasonicInputBack;
-	std::shared_ptr<frc::Ultrasonic> ultrasonicInputLeft;
+//	std::shared_ptr<frc::Ultrasonic> ultrasonicInputFront;
+//	std::shared_ptr<frc::Ultrasonic> ultrasonicInputRight;
+//	std::shared_ptr<frc::Ultrasonic> ultrasonicInputBack;
+//	std::shared_ptr<frc::Ultrasonic> ultrasonicInputLeft;
 
 	int _Ultraloops = 0;
 	int frontUValue = 0;
