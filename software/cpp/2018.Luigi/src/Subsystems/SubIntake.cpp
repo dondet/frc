@@ -36,7 +36,11 @@ void SubIntake::FingerDown() {
 }
 
 void SubIntake::FingerUp() {
-	spFinger->Set(0.4);
+	if (swtFingerUpLimit->Get()) {
+		spFinger->Set(0.0);
+	} else {
+		spFinger->Set(0.4);
+	}
 }
 
 void SubIntake::FingerStop() {
