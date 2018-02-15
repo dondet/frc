@@ -13,9 +13,10 @@ std::shared_ptr<WPI_TalonSRX> RobotMap::subDriveBaseSRXrightSlave;
 //Define Intake Actuators and Sensors
 std::shared_ptr<WPI_TalonSRX> RobotMap::subIntakeTnxRight;
 std::shared_ptr<WPI_TalonSRX> RobotMap::subIntakeTnxLeft;
-std::shared_ptr<WPI_TalonSRX> RobotMap::subIntakeTnxBottom;
+std::shared_ptr<VictorSP> RobotMap::subIntakeSpFinger;
 std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtRightLimit;
 std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtLeftLimit;
+std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtFingerUpLimit;
 
 //Define Ultrasonic sensors Analog
 //std::shared_ptr<frc::AnalogInput> RobotMap::subDriveBaseUltrasonicInputFront;
@@ -87,11 +88,12 @@ void RobotMap::init() {
 	//Initiate Intake Actuators
     subIntakeTnxLeft.reset(new WPI_TalonSRX(7));
     subIntakeTnxRight.reset(new WPI_TalonSRX(8));
+    subIntakeSpFinger.reset(new VictorSP(1));
 
     //Initiate Intake Sensors
-    subIntakeTnxBottom.reset(new WPI_TalonSRX(9));
     subIntakeSwtLeftLimit.reset(new DigitalInput(0));
     subIntakeSwtRightLimit.reset(new DigitalInput(1));
+    subIntakeSwtFingerUpLimit.reset(new DigitalInput(5));
 
 //    //Initiate Ultrasonic sensors Analog
 //    subDriveBaseUltrasonicInputFront.reset(new frc::AnalogInput(0));
