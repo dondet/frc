@@ -19,8 +19,9 @@ void CmdRampDefault::Execute() {
 	_POV = sticky_3->GetPOV();
 
 	if (135 <= _POV && _POV <= 225) { //bottom half of POV
-		CmdPrepForClimb cmdPrepForClimb;
-		cmdPrepForClimb.Start();
+		CmdPrepForClimb *cmdPrepForClimbPtr;
+		cmdPrepForClimbPtr = new CmdPrepForClimb;
+		cmdPrepForClimbPtr->Start();
 		}
 
 	if (270 <= _POV or (_POV <= 90 && _POV >= 0) ){ //top half of POV
