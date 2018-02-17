@@ -168,7 +168,10 @@ bool SubEncodedArmLift::ReachedPosition() {
 
 //If (GetCurrentPosition() +_ 2048 ) = (GetTargetPosition())   //this is crap
 
-	if (GetCurrentPosition() >=   (GetTargetPosition() + 2048)) {
+	std::cout << "ReachedPositionCalled" << std::endl;
+
+	if ( (GetCurrentPosition()) >=   (GetTargetPosition() + 2048)) {
+		std::cout << "ReachedPositionCalled TRUE" << std::endl;
 		return true;
 	}else {
 		return false;
@@ -181,6 +184,7 @@ int SubEncodedArmLift::GetCurrentPosition() {
 
 	//Return current position of the lift encoder in sensor units
 	return _talon->GetSelectedSensorPosition(0);
+	std::cout << "GetCurrentPosition" << std::endl;
 
 }
 
@@ -188,6 +192,8 @@ int SubEncodedArmLift::GetTargetPosition() {
 
 	//Return target position of the lift encoder in sensor units
 	return (targetPositionRotations / 4096);
+	std::cout << "GetTargetPosition" << std::endl;
+
 
 }
 
