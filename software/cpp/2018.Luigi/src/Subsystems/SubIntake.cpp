@@ -10,6 +10,8 @@ SubIntake::SubIntake() : Subsystem("ExampleSubsystem") {
 	swtFingerUpLimit = RobotMap::subIntakeSwtFingerUpLimit;
 	swtLeftLimit = RobotMap::subIntakeSwtLeftLimit;
 	swtRightLimit = RobotMap::subIntakeSwtRightLimit;
+
+	//FingerUp();  //idk if we will need this
 }
 
 void SubIntake::InitDefaultCommand() {
@@ -39,7 +41,7 @@ void SubIntake::FingerUp() {
 	if (swtFingerUpLimit->Get()) {
 		spFinger->Set(0.0);
 	} else {
-		spFinger->Set(0.4);
+		spFinger->Set(0.1);
 	}
 }
 

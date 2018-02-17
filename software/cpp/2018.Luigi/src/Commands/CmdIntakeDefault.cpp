@@ -9,8 +9,7 @@ CmdIntakeDefault::CmdIntakeDefault() {
 // Called just before this Command runs the first time
 void CmdIntakeDefault::Initialize() {
 
-	Robot::subIntake->FingerDown();
-	SetTimeout(0.4);
+
 
 }
 
@@ -23,7 +22,7 @@ void CmdIntakeDefault::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool CmdIntakeDefault::IsFinished() {
-	return IsTimedOut();
+	return false;
 }
 
 // Called once after isFinished returns true
