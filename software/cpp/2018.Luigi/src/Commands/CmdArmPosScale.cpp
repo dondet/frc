@@ -28,7 +28,10 @@ bool CmdArmPosScale::IsFinished() {
 		return true;
 	}
 
-	//stuff was here
+	if (Robot::subEncodedArmLift->GetCurrentPosition() == Robot::subEncodedArmLift->GetTargetPosition()){
+			//Stop command if target position is reached
+			return true;
+	}
 
 	return false;
 }

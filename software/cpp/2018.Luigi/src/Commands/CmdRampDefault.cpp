@@ -1,5 +1,4 @@
 #include "CmdRampDefault.h"
-#include "CmdPrepForClimb.h"
 
 CmdRampDefault::CmdRampDefault() {
 	// Use Requires() here to declare subsystem dependencies
