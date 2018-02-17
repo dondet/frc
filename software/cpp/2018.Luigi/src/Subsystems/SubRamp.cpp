@@ -17,6 +17,21 @@ void SubRamp::InitDefaultCommand() {
 void SubRamp::DropRamp(){ //start spining
 
 	SPLeft->Set(0.4);
+	_timerCase = 1;
+
+}
+
+void SubRamp::Periodic() {
+
+	switch (_timerCase) {
+	case 0 :
+	break;
+	case 1 :
+		if(_timerValue++ == 100) {
+			Robot::subEncodedArmLift->ArmToClimbPos();
+		}
+	break;
+	}
 
 }
 

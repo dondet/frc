@@ -28,11 +28,7 @@ bool CmdArmPosScale::IsFinished() {
 		return true;
 	}
 
-	if (Robot::subEncodedArmLift->ReachedPosition()){
-		//Stop command if target position is reached
-		std::cout << "Does it actully return isfinished???" << std::endl;
-		return true;
-	}
+	//stuff was here
 
 	return false;
 }

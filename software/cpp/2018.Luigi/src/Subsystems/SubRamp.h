@@ -10,6 +10,8 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<VictorSP> SPLeft;
+	int _timerCase = 0;
+	int _timerValue = 0;
 
 public:
 	SubRamp();
@@ -17,6 +19,7 @@ public:
 	void DropRamp();
 	void StopRamp();
 	void ResetRamp();
+	void Periodic();
 };
 
 #endif  // SubRamp_H

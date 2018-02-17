@@ -10,6 +10,7 @@ public:
 
 	std::shared_ptr<Joystick> sticky_3;
 	int _POV = 0;
+	int _rampCase = 0;
 
 	CmdRampDefault();
 	void Initialize();

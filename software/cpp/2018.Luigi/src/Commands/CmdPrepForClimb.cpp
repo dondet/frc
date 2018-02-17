@@ -28,10 +28,16 @@ CmdPrepForClimb::CmdPrepForClimb() {
 
 	std::cout << "Upto CMDscale" << std::endl;
 	AddSequential(new CmdArmPosScale());
-	std::cout << "Upto CMD Drop" << std::endl;
-	AddSequential(new CmdRampDrop());
+	//ADD TIMER IN HERE
 	std::cout << "Upto CMDclimbPOS" << std::endl;
 	AddSequential(new CmdArmPosClimb());
+
+//	std::cout << "Upto CMDscale" << std::endl;
+//		AddSequential(new CmdArmPosScale());
+//		std::cout << "Upto CMD Drop" << std::endl;
+//		AddSequential(new CmdRampDrop());
+//		std::cout << "Upto CMDclimbPOS" << std::endl;
+//		AddSequential(new CmdArmPosClimb());
 
 }
 
