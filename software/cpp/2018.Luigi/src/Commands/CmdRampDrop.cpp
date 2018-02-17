@@ -9,13 +9,15 @@ CmdRampDrop::CmdRampDrop() {
 // Called just before this Command runs the first time
 void CmdRampDrop::Initialize() {
 
+	std::cout << "Drop The RMAP!!" << std::endl;
+
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CmdRampDrop::Execute() {
 
 	SetTimeout(0.5);
-	Robot::subRamp->ResetRamp();
+	Robot::subRamp->DropRamp();
 
 }
 

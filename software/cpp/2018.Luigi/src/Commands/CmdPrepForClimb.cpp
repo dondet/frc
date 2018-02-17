@@ -1,7 +1,9 @@
 #include "CmdPrepForClimb.h"
+#include <iostream>
 #include "CmdArmPosScale.h"
 #include "CmdRampDrop.h"
 #include "CmdArmPosClimb.h"
+
 
 CmdPrepForClimb::CmdPrepForClimb() {
 	// Add Commands here:
@@ -24,8 +26,11 @@ CmdPrepForClimb::CmdPrepForClimb() {
 //	Requires(Robot::subEncodedArmLift.get());
 //	Requires(Robot::subRamp.get());
 
+	std::cout << "Upto CMDscale" << std::endl;
 	AddSequential(new CmdArmPosScale());
+	std::cout << "Upto CMD Drop" << std::endl;
 	AddSequential(new CmdRampDrop());
+	std::cout << "Upto CMDclimbPOS" << std::endl;
 	AddSequential(new CmdArmPosClimb());
 
 }

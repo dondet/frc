@@ -164,6 +164,18 @@ void SubEncodedArmLift::StartBtnReset() { //reset (start button) xbox 360 contro
 
 }
 
+bool SubEncodedArmLift::ReachedPosition() {
+
+//If (GetCurrentPosition() +_ 2048 ) = (GetTargetPosition())   //this is crap
+
+	if (GetCurrentPosition() >=   (GetTargetPosition() + 2048)) {
+		return true;
+	}else {
+		return false;
+	}
+
+}
+
 
 int SubEncodedArmLift::GetCurrentPosition() {
 

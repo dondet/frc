@@ -44,6 +44,7 @@ public:
 	void IfBottom();
 	void IfTop();
 	void MovementCheck();
+	bool ReachedPosition();
 
 };
 
