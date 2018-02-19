@@ -13,10 +13,13 @@ private:
 	int _startAutoCount = 0;
 
 	int _scaleCount = 0;
-	int _scaleTarget = 10;
+	int _scaleTarget = 70;  //wait for scale to go up
 
 	int _dropCount = 0;
-	int _dropTarget = 10;
+	int _dropTarget = 8; //ramp motor relase time
+
+	int _climbCount = 0;
+	int _climbTarget = 30; //wait for ramp drop time
 
 
 public:
@@ -28,6 +31,7 @@ public:
 	void StopRamp();
 	void AutoStopRamp();
 	void ResetRamp();
+	void GotoClimbHeight();
 	void Periodic();
 };
 

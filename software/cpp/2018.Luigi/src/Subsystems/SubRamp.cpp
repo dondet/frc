@@ -44,23 +44,25 @@ void SubRamp::Periodic() {
 	case 0 :
 	break;
 	case 1 :
-		if (_scaleCount >= _scaleTarget) {
+		if (_scaleCount >= _scaleTarget) { //wait for scale
 			DropRamp();
 		} else {
 			_scaleCount++;
 		}
 	break;
 	case 2 :
-		if (_dropCount >= _dropTarget) {
-					AutoStopRamp();
-				} else {
-					_dropCount++;
-				}
+		if (_dropCount >= _dropTarget) { //Stop the motor,, ramp rel
+			AutoStopRamp(); //stop motor ramp rel
+		} else {
+			_dropCount++;
+		}
 	break;
 	case 3 :
-		CmdArmPosClimb * cmdArmPosClimbPtr;
-		cmdArmPosClimbPtr  = new CmdArmPosClimb;
-		cmdArmPosClimbPtr->Start();
+		if (_climbCount >= _climbTarget) { //wait for ramp drop time
+			GotoClimbHeight();
+		} else {
+			_climbCount++;
+		}
 	break;
 	}
 
@@ -69,7 +71,7 @@ void SubRamp::Periodic() {
 void SubRamp::ResetRamp() {
 
 	SPLeft->Set(-0.2);
-
+	_startAutoCount = 0;
 }
 
 void SubRamp::StopRamp() {
@@ -83,6 +85,14 @@ void SubRamp::AutoStopRamp() {
 	SPLeft->Set(0.0);
 
 	_startAutoCount = 3;
+
+}
+
+void SubRamp::GotoClimbHeight() {
+
+	CmdArmPosClimb * cmdArmPosClimbPtr;
+	cmdArmPosClimbPtr  = new CmdArmPosClimb;
+	cmdArmPosClimbPtr->Start();
 
 }
 
