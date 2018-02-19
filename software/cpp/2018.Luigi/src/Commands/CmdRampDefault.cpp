@@ -19,29 +19,14 @@ void CmdRampDefault::Execute() {
 	_POV = sticky_3->GetPOV();
 
 	if (135 <= _POV && _POV <= 225) { //bottom half of POV
-//		CmdPrepForClimb *cmdPrepForClimbPtr;
-//		cmdPrepForClimbPtr = new CmdPrepForClimb;
-//		cmdPrepForClimbPtr->Start();
 
-		Robot::subEncodedArmLift->ArmToScalePos();
-		_rampCase = 1;
+		Robot::subRamp->AutoDropRamp();
 
 		}
 
 	if (270 <= _POV or (_POV <= 90 && _POV >= 0) ){ //top half of POV
 		SetTimeout(0.15);
 		Robot::subRamp->ResetRamp();
-	}
-
-	switch(_rampCase){
-	case 0 :
-	break;
-	case 1 :
-		if (Robot::subEncodedArmLift->ReachedPosition()) {
-			SetTimeout(0.5);
-			Robot::subRamp->DropRamp();
-		}
-	break;
 	}
 
 }
