@@ -79,6 +79,38 @@ void SubDriveBase::Periodic() {
 	if (selectedDriveMode == Autonomous){
 		HandlePIDOutput(_Speed, _Rotation, _isQuickTurn);
 	}
+
+	if (++_timerSendCount >= 49) {
+
+//		DriverStation& ds = DriverStation::GetInstance();
+//		_timerStore = ds.GetMatchTime();
+
+		_timerStore = DriverStation::GetInstance().GetMatchTime();
+
+		std::cout << "TIMER VALUE =   " <<  _timerStore <<std::endl;
+		if ((_timerStore <= 20) && (_timerStore >=10)) { //go at xyz seconds left
+			_timerDoCase = 1;
+			}
+		_timerSendCount = 0;
+	}
+
+	switch(_timerDoCase) {
+	case 0 :
+	break;
+	case 1 :
+		sticky_4 = Robot::oi->getJoystick0();
+		sticky_4->SetRumble(GenericHID::kLeftRumble, 1.0); //(RumbleType type, double value);
+		if (++_rumbleWait >= 120 ) {
+			_timerDoCase = 2;
+		}
+	break;
+	case 2 :
+		sticky_4->SetRumble(GenericHID::kLeftRumble, 0.0);
+		_rumbleWait = 0;
+	break;
+	}
+
+
 }
 
 void SubDriveBase::AutoDrive(double speed, double rotation) {

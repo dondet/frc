@@ -98,6 +98,8 @@ void SubRamp::GotoClimbHeight() {
 	cmdArmPosClimbPtr  = new CmdArmPosClimb;
 	cmdArmPosClimbPtr->Start();
 
+	_startAutoCount = 0;
+
 }
 
 // Put methods for controlling this subsystem

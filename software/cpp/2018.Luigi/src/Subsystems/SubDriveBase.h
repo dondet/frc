@@ -63,6 +63,12 @@ private:
 	int backUValue = 0;
 	int leftUValue = 0;
 
+	int _timerSendCount = 0;
+	double _timerStore = 0;
+	int _timerDoCase = 0;
+	std::shared_ptr<Joystick> sticky_4;
+	int _rumbleWait = 0;
+
 	//NavX objects for autonomous driving
 	PIDController* turnController;
 	PIDController* driveController;
