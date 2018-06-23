@@ -27,13 +27,13 @@ void SubEncodedArm::Periodic() {
 	if( lc > 10){
 		//SmartDashboard::PutNumber("POT Value", _potMain->GetValue());
 		//SmartDashboard::PutNumber("POT Voltage", _potMain->GetVoltage());
-		SmartDashboard::PutNumber("POT Value Average", _potMain->GetAverageValue());
+		SmartDashboard::PutNumber("POT Value Average", _potMain->Get());
 		//SmartDashboard::PutNumber("POT Voltage Average", _potMain->GetAverageVoltage());
 
 		SmartDashboard::PutNumber("ARM ERROR", armController->GetError());
 		SmartDashboard::PutNumber("ARM OUTPUT", armController->Get());
 		SmartDashboard::PutNumber("ARM SETPOINT", armController->GetSetpoint());
-		SmartDashboard::PutNumber("ARM ERROR", armController->Get);
+		SmartDashboard::PutNumber("ARM ERROR", armController->Get());
 
 		lc = 0;
 	}

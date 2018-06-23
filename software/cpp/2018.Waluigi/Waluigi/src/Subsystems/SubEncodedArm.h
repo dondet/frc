@@ -12,7 +12,7 @@ class SubEncodedArm : public frc::Subsystem {
 private:
 
 	std::shared_ptr<WPI_TalonSRX> _talon;
-	std::shared_ptr<AnalogInput> _potMain;
+	std::shared_ptr<AnalogPotentiometer> _potMain;
 
 	PIDController* armController;
 

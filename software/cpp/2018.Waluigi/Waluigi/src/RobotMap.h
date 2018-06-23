@@ -19,7 +19,7 @@ public:
 
 	//EncodedArm
 	static std::shared_ptr<WPI_TalonSRX> subEncodedArmTnx;
-	static std::shared_ptr<AnalogInput> subEncodedArmPot;
+	static std::shared_ptr<AnalogPotentiometer> subEncodedArmPot;
 
 	static void init();
 };
