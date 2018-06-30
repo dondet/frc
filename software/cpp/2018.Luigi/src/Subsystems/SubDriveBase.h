@@ -28,6 +28,8 @@ private:
 	//std::shared_ptr<frc::Ultrasonic> ultrasonicInputLeft;
 
 	std::shared_ptr<frc::I2C> i2c;
+	std::shared_ptr<frc::DigitalInput> autoSelect1;
+	std::shared_ptr<frc::DigitalInput> autoSelect2;
 
 	int _Ultraloops = 0;
 	int frontUValue = 0;
@@ -37,6 +39,7 @@ private:
 
 	int frontUValueMM =0;
 
+
 public:
 	SubDriveBase();
 	void InitDefaultCommand() override;
@@ -44,7 +47,8 @@ public:
 	void AutoDrive(double, double);
 	void Stop();
 	void TakeJoystickInputs(std::shared_ptr<Joystick>);
-
+	int ReadAutoSelectA();
+	int ReadAutoSelectB();
 };
 
 #endif

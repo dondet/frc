@@ -79,7 +79,8 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
-
+	subDriveBase->ReadAutoSelectA();
+	subDriveBase->ReadAutoSelectB();
 }
 
 START_ROBOT_CLASS(Robot);

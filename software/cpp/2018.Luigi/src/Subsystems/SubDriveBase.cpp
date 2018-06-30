@@ -1,3 +1,4 @@
+#include <iostream>
 #include "SubDriveBase.h"
 #include "Commands/MyJoystickDrive.h"
 
@@ -14,6 +15,8 @@ SubDriveBase::SubDriveBase() : frc::Subsystem("SubDriveBase") {
     //ultrasonicInputLeft = sRobotMap::subDriveBaseUltrasonicInputLeft;
 
     i2c = RobotMap::i2c;
+    autoSelect1 = RobotMap::subDrivebaseAutoSelect1;
+    autoSelect2 = RobotMap::subDrivebaseAutoSelect2;
 
    // i2c = new I2C(I2C::Port::kOnboard, 8);
 
@@ -74,4 +77,25 @@ void SubDriveBase::Stop(){
 void SubDriveBase::TakeJoystickInputs(std::shared_ptr<Joystick> sticky ) {
 	double throttle = (((sticky->GetRawAxis(3) + 1 ) / 4 )*-1 ) +1;
 	differentialDrive->ArcadeDrive(-sticky->GetY() * throttle, sticky->GetX() * throttle);
+}
+
+int SubDriveBase::ReadAutoSelectA() {
+	bool tmp = autoSelect1->Get();
+	if( tmp ) {
+		std::cout << "INFO: tmp A: YAY" << std::endl;
+	} else {
+		std::cout << "INFO: tmp A: NOPE" << std::endl;
+	}
+	return tmp;
+}
+
+int SubDriveBase::ReadAutoSelectB() {
+	bool tmp = autoSelect2->Get();
+	if( tmp ) {
+		std::cout << "INFO: tmp B: YAY" << std::endl;
+	} else {
+		std::cout << "INFO: tmp B: NOPE" << std::endl;
+	}
+
+	return tmp;
 }

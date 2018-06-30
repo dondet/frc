@@ -24,6 +24,8 @@ std::shared_ptr<DigitalInput> RobotMap::subIntakeSwtLeftLimit;
 //std::shared_ptr<frc::AnalogInput> RobotMap::subDriveBaseUltrasonicInputLeft;
 
 std::shared_ptr<frc::I2C> RobotMap::i2c;
+std::shared_ptr<DigitalInput> RobotMap::subDrivebaseAutoSelect1;
+std::shared_ptr<DigitalInput> RobotMap::subDrivebaseAutoSelect2;
 
 //Define Ultrasonic sensors Echo
 std::shared_ptr<frc::Ultrasonic> RobotMap::subDriveBaseUltrasonicInputFront;
@@ -101,7 +103,8 @@ void RobotMap::init() {
 
     i2c.reset(new I2C(I2C::Port::kOnboard, 8));
 
-
+    subDrivebaseAutoSelect1.reset(new DigitalInput(12));
+    subDrivebaseAutoSelect2.reset(new DigitalInput(13));
 
     //initiate echo Ultrasonic objects
     subDriveBaseUltrasonicInputFront.reset(new frc::Ultrasonic(8,9));

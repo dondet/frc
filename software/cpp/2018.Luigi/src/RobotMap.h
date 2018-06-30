@@ -42,12 +42,13 @@ public:
 	//static std::shared_ptr<frc::Ultrasonic> subDriveBaseUltrasonicInputLeft;
 
 	static std::shared_ptr<frc::I2C> i2c;
+	static std::shared_ptr<DigitalInput> subDrivebaseAutoSelect1;
+	static std::shared_ptr<DigitalInput> subDrivebaseAutoSelect2;
 
 	//Define arm lift Actuators / Actuator
 	static std::shared_ptr<WPI_TalonSRX> subEncodedArmLiftSrxMaster;
 	static std::shared_ptr<WPI_TalonSRX> subEncodedArmLiftSrxSlave;
 	static std::shared_ptr<DigitalInput> subEncodedArmLiftSwtBottom;
-
 	
 	//Define Motion Profile Data
 	static std::shared_ptr<MotionProfileData> mpBaseline;
