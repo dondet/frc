@@ -2,6 +2,7 @@
 
 #include "PIDPot.h"
 #include "../RobotMap.h"
+#include "../Robot.h"
 
 PIDPot::PIDPot() {
 	// TODO Auto-generated constructor stub
@@ -11,7 +12,17 @@ PIDPot::PIDPot() {
 
 double PIDPot::PIDGet() {
 
-	return _potMain->GetAverageValue();  //this is a analyze error only
+	double target =	Robot::subEncodedArm->PIDGetSetPoint();
+
+	int potAvg = _potMain->GetAverageValue();
+
+	double error = abs(potAvg - target);
+
+	double newTarget = error * potAvg;
+
+	return newTarget;
+
+	//return _potMain->GetAverageValue();
 
 }
 

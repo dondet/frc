@@ -32,6 +32,8 @@ public:
 	void Periodic();
 	void Stop();
 	void ArmJoyMove(std::shared_ptr<frc::Joystick> controller);
+	double PIDGetError();
+	double PIDGetSetPoint();
 	void PIDToggle();
 	void PIDEnable();
 	void PIDDisable();

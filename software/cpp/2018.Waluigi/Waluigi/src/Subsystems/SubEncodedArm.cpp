@@ -41,6 +41,13 @@ void SubEncodedArm::Periodic() {
 	}
 }
 
+double SubEncodedArm::PIDGetError() {
+	return armController->GetError();
+}
+double SubEncodedArm::PIDGetSetPoint() {
+	return armController->GetSetpoint();
+}
+
 void SubEncodedArm::InitDefaultCommand() { //Default Command sets _talon to 0.0
 	//SetDefaultCommand(new CmdArmDefault());
 }

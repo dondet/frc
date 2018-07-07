@@ -12,6 +12,7 @@
 
 #include "WPILib.h"
 
+
 class PIDPot : public PIDSource {
 public:
 	PIDPot();
