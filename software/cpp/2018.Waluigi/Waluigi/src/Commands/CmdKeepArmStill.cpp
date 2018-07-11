@@ -12,6 +12,7 @@
 CmdKeepArmStill::CmdKeepArmStill() {
 	Requires(Robot::subEncodedArm.get());
 	feedForward = ( (weight * dist) / (gearRatio * (stallTorque/maxVoltage)) );
+	SmartDashboard::PutNumber("feedForward", feedForward);
 }
 
 // Called just before this Command runs the first time
@@ -23,10 +24,13 @@ void CmdKeepArmStill::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdKeepArmStill::Execute() {
 	double currentAngle = Robot::subEncodedArm->GetArmAngle();
-	double additionalVoltage = feedForward * cos(currentAngle);
+	currentAngle = currentAngle*3.1415/180;
+	double additionalVoltage = feedForward * sin(currentAngle) * multiplier;
 	double additionalSpeed = additionalVoltage/maxVoltage;
 	SmartDashboard::PutNumber("armSpeed", additionalSpeed);
-	SmartDashboard::PutNumber("encoderPosition", currentAngle);
+	SmartDashboard::PutNumber("angle", currentAngle);
+	SmartDashboard::PutNumber("sin of angle", sin(currentAngle));
+	SmartDashboard::PutNumber("voltage", additionalVoltage);
 	Robot::subEncodedArm->VoltageControl(additionalSpeed);
 }
 
