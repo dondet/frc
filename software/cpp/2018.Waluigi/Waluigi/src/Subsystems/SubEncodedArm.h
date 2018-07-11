@@ -15,6 +15,10 @@ private:
 	int  lc = 0;
 	double _axis5 = 0.0;
 
+	double PotBack = 152;
+	double PotFront = 2346;
+	double totalAngle = 190;
+
 
 public:
 	SubEncodedArm();
@@ -22,5 +26,9 @@ public:
 	void Periodic();
 	void Stop();
 	void ArmJoyMove(std::shared_ptr<frc::Joystick> controller);
+
+	void VoltageControl(double percentage);
+	double GetArmAngle();
+
 };
 
