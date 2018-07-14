@@ -9,6 +9,7 @@ SubEncodedArm::SubEncodedArm() : Subsystem("ExampleSubsystem") {
 
 	_talon = RobotMap::subEncodedArmTnx;
 	_potMain = RobotMap::subEncodedArmPot;
+	_currentPosition = "C";
 
 }
 
@@ -40,8 +41,7 @@ void SubEncodedArm::Stop() {	//Used by the default command
 	_talon->Set(0.0);
 }
 
-
-
-
-
-
+void SubEncodedArm::ArmMoveTo(std::string targetPosition) {
+	std::string profile = _currentPosition + targetPosition;
+	_currentPosition = targetPosition;
+}
