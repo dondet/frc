@@ -13,6 +13,8 @@
 #define _ROBOT_H
 
 #include "WPILib.h"
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/core.hpp>
 #include "Commands/Command.h"
 #include "RobotMap.h"
 #include "LiveWindow/LiveWindow.h"
@@ -30,7 +32,6 @@
 class Robot : public frc::TimedRobot {
 public:
 
-
 	frc::Command* autonomousCommand = nullptr;
 	static std::unique_ptr<OI> oi;
 	frc::LiveWindow *lw = frc::LiveWindow::GetInstance();
@@ -38,7 +39,6 @@ public:
 	static std::shared_ptr<SubDriveBase> subDriveBase;
 	static std::shared_ptr<SubIntake> subIntake;
 	static std::shared_ptr<SubEncodedArm> subEncodedArm;
-
 
 	void RobotInit() override;
 	void DisabledInit() override;
@@ -52,5 +52,6 @@ private:
 	AutonomousSelector autoSel;
 	GameData gamedata;
 	static std::shared_ptr<Command> chosenCommand;
+	static void VisionThread();
 };
 #endif
