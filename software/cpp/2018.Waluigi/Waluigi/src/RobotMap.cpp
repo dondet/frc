@@ -47,4 +47,5 @@ void RobotMap::init() {
     //setup EncodedArm Actuator/Sensors
     subEncodedArmTnx.reset(new WPI_TalonSRX(4));
     subEncodedArmPot.reset(new AnalogInput(0));
+
 }

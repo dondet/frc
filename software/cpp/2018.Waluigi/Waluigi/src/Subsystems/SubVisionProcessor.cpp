@@ -9,8 +9,8 @@
 #include "../RobotMap.h"
 
 SubVisionProcessor::SubVisionProcessor() : Subsystem("SubVisionProcessor") {
-	std::thread visionThread(VisionThread);
-	visionThread.detach();
+	_visionThreadPtr = new std::thread(SubVisionProcessor::VisionThread);
+	_visionThreadPtr->detach();
 }
 
 void SubVisionProcessor::InitDefaultCommand() {

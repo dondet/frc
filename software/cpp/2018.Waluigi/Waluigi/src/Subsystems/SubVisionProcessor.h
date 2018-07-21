@@ -13,12 +13,15 @@
 #include <opencv2/core/core.hpp>
 
 class SubVisionProcessor : public frc::Subsystem {
+
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	static void VisionThread();
-
-public:
 	SubVisionProcessor();
 	void InitDefaultCommand() override;
+	std::thread * _visionThreadPtr;
+
+public:
+
 };
